@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: breno
+      changes:
+        - createTable:
+            tableName: transfer
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: type_of_transfer
+                  type: VARCHAR(30)
+              - column:
+                  name: transfer_value
+                  type: DECIMAL(19,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expiration_date
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payment_method
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: source_system
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dt_Creation
+                  type: DATETIME
+              - column:
+                  name: dt_Update
+                  type: DATETIME
