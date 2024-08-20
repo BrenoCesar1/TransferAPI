@@ -40,8 +40,8 @@ public class TransferService {
                 .orElse(transfer.getTypeOfTransfer()));
         transfer.setTransferValue(Optional.ofNullable(transferDto.getTransferValue())
                 .orElse(transfer.getTransferValue()));
-        transfer.setExpirationDate(Optional.of(DateUtil.stringToDate(transferDto.getExpirationDate()))
-                .orElse(transfer.getExpirationDate()));
+        transfer.setExpirationDate(transferDto.getExpirationDate() != null ?
+                DateUtil.stringToDate(transferDto.getExpirationDate()) : transfer.getExpirationDate());
         transfer.setPaymentMethod(Optional.ofNullable(transferDto.getPaymentMethod())
                 .map(Transfer.PaymentMethod::valueOf)
                 .orElse(transfer.getPaymentMethod()));
