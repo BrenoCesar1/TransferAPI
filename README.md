@@ -1,59 +1,59 @@
 # Transfer API
 
-Esta é uma API para gestão de transferências financeiras. A API foi desenvolvida em Java utilizando o framework Spring Boot 3 e Java 17. Ela permite gerenciar três tipos de transferências: `SELLER`, `CONCILIACAO` e `CONTABIL`.
+Esta Ã© uma API para gestÃ£o de transferÃªncias financeiras. A API foi desenvolvida em Java utilizando o framework Spring Boot 3 e Java 17. Ela permite gerenciar trÃªs tipos de transferÃªncias: `SELLER`, `CONCILIACAO` e `CONTABIL`.
 
 ## Funcionalidades
 
 - Criar uma novo repasse
 - Atualizar um repasse existente
 - Excluir um repasse
-- Consultar repasse com filtros (paginação e ordenação suportadas)
-- Consultar um repasse específico
+- Consultar repasse com filtros (paginaÃ§Ã£o e ordenaÃ§Ã£o suportadas)
+- Consultar um repasse especÃ­fico
 
 ## Tecnologias Utilizadas
 
 - **Java 17**
 - **Spring Boot 3**
-- **Maven** - Gerenciamento de dependências
-- **H2 Database** - Banco de dados em memória para testes
-- **JaCoCo** - Ferramenta para medição da cobertura de testes
+- **Maven** - Gerenciamento de dependÃªncias
+- **H2 Database** - Banco de dados em memÃ³ria para testes
+- **JaCoCo** - Ferramenta para mediÃ§Ã£o da cobertura de testes
 - **JUnit 5** - Framework de testes
-- **Mockito** - Framework para criação de mocks
-- **Spring Data JPA** - Facilita a implementação de repositórios baseados em JPA
-- **Spring Web** - Facilita a criação de aplicações web
-- **Lombok** - Biblioteca Java que ajuda a reduzir a quantidade de código boilerplate
-- **SpringDoc OpenAPI** - Geração de documentação OpenAPI
-- **Liquibase** - Gerenciamento de mudanças no esquema do banco de dados
+- **Mockito** - Framework para criaÃ§Ã£o de mocks
+- **Spring Data JPA** - Facilita a implementaÃ§Ã£o de repositÃ³rios baseados em JPA
+- **Spring Web** - Facilita a criaÃ§Ã£o de aplicaÃ§Ãµes web
+- **Lombok** - Biblioteca Java que ajuda a reduzir a quantidade de cÃ³digo boilerplate
+- **SpringDoc OpenAPI** - GeraÃ§Ã£o de documentaÃ§Ã£o OpenAPI
+- **Liquibase** - Gerenciamento de mudanÃ§as no esquema do banco de dados
 
 ## Como Executar
 
-1. **Clone o repositório:**
+1. **Clone o repositÃ³rio:**
 
    ```bash
    git clone https://github.com/BrenoCesar1/testLabs.git
-   cd TransfersAPI
+   cd TransferAPI
    
-2. **Configure as dependências:**
+2. **Configure as dependÃªncias:**
 
    ```bash
    mvn clean install
 
-3. **Execute aplicação:**
+3. **Execute aplicaÃ§Ã£o:**
 
    ```bash
    mvn spring-boot:run
 
-A aplicação estará disponível em http://localhost:8080.
+A aplicaÃ§Ã£o estarÃ¡ disponÃ­vel em http://localhost:8080.
 
 3. **Execute os testes:**
 
    ```bash
    mvn test
    mvn jacoco:report
-O relatório de cobertura estará disponível no caminho target/site/jacoco/index.html.
+O relatÃ³rio de cobertura estarÃ¡ disponÃ­vel no caminho target/site/jacoco/index.html.
 
-## Acesso a documentação
-1. **Acesse a url para visualizar a documentação da API:**
+## Acesso a documentaÃ§Ã£o
+1. **Acesse a url para visualizar a documentaÃ§Ã£o da API:**
 
    ```bash
    http://localhost:8080/swagger-ui/index.html
@@ -63,7 +63,7 @@ O relatório de cobertura estará disponível no caminho target/site/jacoco/index.h
     ```bash
     POST /v1/api/transfers
     ```
-    Exemplo de corpo da requisição:
+    Exemplo de corpo da requisiÃ§Ã£o:
     ```json
    {
       "typeOfTransfer": "CONTABIL",
@@ -88,7 +88,7 @@ O relatório de cobertura estará disponível no caminho target/site/jacoco/index.h
     ```bash
     PUT /v1/api/transfers/{id}
     ```
-    Exemplo de corpo da requisição:
+    Exemplo de corpo da requisiÃ§Ã£o:
     ```json
    {
       "id": 1,
@@ -110,19 +110,19 @@ O relatório de cobertura estará disponível no caminho target/site/jacoco/index.h
  ```bash
  GET /v1/api/transfers
  ```
- Exemplo de parâmetros de consulta:
+ Exemplo de parÃ¢metros de consulta:
  ```text
 typeOfTransfer (opcional)
 expirationDate (opcional)
 paymentMethod (opcional)
 sourceSystem (opcional)
-orderBy (opcional) - Campo para ordenação
-expirationDataStart (opcional) - Data de início para filtro de data de vencimento
+orderBy (opcional) - Campo para ordenaÃ§Ã£o
+expirationDataStart (opcional) - Data de inÃ­cio para filtro de data de vencimento
 expirationDataEnd (opcional) - Data de fim para filtro de data de vencimento
-page (opcional) - Página de resultados
-size (opcional) - Número de resultados por página
+page (opcional) - PÃ¡gina de resultados
+size (opcional) - NÃºmero de resultados por pÃ¡gina
    ```
- Exemplo de requisição com filtros:
+ Exemplo de requisiÃ§Ã£o com filtros:
 
  ```bash
  GET /v1/api/transfers?typeOfTransfer=SELLER&orderBy=expirationDate&page=0&size=10
@@ -167,9 +167,9 @@ size (opcional) - Número de resultados por página
     DELETE /v1/api/transfers/{id}
     ```
 
-## Validações
-As validações você encontra na aba schema na documentação da API, mas aqui estão algumas delas:
+## ValidaÃ§Ãµes
+As validaÃ§Ãµes vocÃª encontra na aba schema na documentaÃ§Ã£o da API, mas aqui estÃ£o algumas delas:
 1. **Existe valores determinados para os campos "typeOfTransfer", "paymentMethod" e "sourceSystem".**
-2. **Valor da transferência é requerido: O campo transferValue é obrigatório.**
-3. **Data de vencimento é requerida: O campo expirationDate é obrigatório e dever ser inserido no padrão yyyy-MM-dd.**
-4. **Data de vencimento não pode ser menor que a data atual.**
+2. **Valor da transferÃªncia Ã© requerido: O campo transferValue Ã© obrigatÃ³rio.**
+3. **Data de vencimento Ã© requerida: O campo expirationDate Ã© obrigatÃ³rio e dever ser inserido no padrÃ£o yyyy-MM-dd.**
+4. **Data de vencimento nÃ£o pode ser menor que a data atual.**
