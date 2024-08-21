@@ -43,7 +43,7 @@ Esta é uma API para gestão de transferências financeiras. A API foi desenvolv
    ```bash
    mvn spring-boot:run
 
-A aplicação estará disponível em http://localhost:8080.
+A aplicação estará disponível em http://localhost:8080. O liquibase irá executar os scripts e criará a tabela "Transfer" no banco de dados.
 
 3. **Execute os testes:**
 
